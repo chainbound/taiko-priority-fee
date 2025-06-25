@@ -8,10 +8,11 @@ mise i
 mise r init
 ```
 
-Collect proposals and mainnet basefee (can configure params in [`mise.toml`](mise.toml)):
+Collect proposals, mainnet basefee and mainnet transactions if not present (can configure params in [`mise.toml`](mise.toml)):
 ```
 mise r collect-proposals
 mise r collect-mainnet-basefee
+mise r collect-mainnet-txs
 ```
 
 ## Analysis
