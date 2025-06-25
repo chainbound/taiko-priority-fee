@@ -18,13 +18,18 @@ run = "uv venv && uv sync"
 
 [tasks.collect-proposals]
 description = "Collect batch proposal transactions and logs on Holesky for the given block range"
-env = { RPC_URL = "http://remotebeast:42545", FROM = 4055500, TO = 4061284 }
+env = { RPC_URL = "http://remotebeast:42545", FROM = 4055500, TO = 4061726 }
 run = [
     "cryo transactions -b $FROM:$TO -r $RPC_URL --from-address $PROPOSER --to-address $ROUTER --csv --topic0 0x9eb7fc80523943f28950bbb71ed6d584effe3e1e02ca4ddc8c86e5ee1558c096 --chunk-size 100000 --columns block_number timestamp transaction_hash gas_limit gas_used gas_price max_priority_fee_per_gas max_fee_per_gas n_input_bytes --sort block_number",
     "cryo logs -b $FROM:$TO -r $RPC_URL --from-address $PROPOSER --address $INBOX --csv --topic0 0x9eb7fc80523943f28950bbb71ed6d584effe3e1e02ca4ddc8c86e5ee1558c096 --chunk-size 100000 --sort block_number",
 ]
 
 [tasks.collect-mainnet-basefee]
-description = "Collect base fee on Mainnet for the given block range"
-env = { RPC_URL = "http://cb-hetzner-he-01:8545/bc38ba43-31d8-4a9a-b106-9527fd8bcb80", FROM = 22553417, TO = 22779885 }
-run = "cryo blocks -b $FROM:$TO -r $RPC_URL --csv --chunk-size 1000000 --columns block_number timestamp gas_used base_fee_per_gas --overwrite"
+description = "Collect base fee on Mainnet for the given block range (180 days)"
+env = { RPC_URL = "http://cb-hetzner-he-01:8545/bc38ba43-31d8-4a9a-b106-9527fd8bcb80", FROM = 21453417, TO = 22779885 }
+run = "cryo blocks -b $FROM:$TO -r $RPC_URL --csv --chunk-size 1500000 --columns block_number timestamp gas_used base_fee_per_gas --overwrite"
+
+[tasks.collect-mainnet-txs]
+description = "Collect transactions on Mainnet for the given block range (15 days)"
+env = { RPC_URL = "http://cb-hetzner-he-01:8545/bc38ba43-31d8-4a9a-b106-9527fd8bcb80", FROM = 22767885, TO = 22779885 }
+run = "cryo transactions -v -b $FROM:$TO -r $RPC_URL --csv --chunk-size 4000000 --columns block_number timestamp transaction_hash gas_limit gas_used gas_price max_priority_fee_per_gas max_fee_per_gas n_input_bytes --sort block_number"
