@@ -1,6 +1,11 @@
 # Taiko Priority Fee Analysis
 
-This analysis requires [mise](https://mise.jdx.dev/getting-started.html#installing-mise-cli). On MacOS, use `brew install mise`.
+## Analysis
+The analysis can be found in [`main.ipynb`](main.ipynb). Make sure you select the correct Python environment in the top right corner (from the virtual environment).
+
+## Running / Replicating
+
+Replicating this analysis requires [mise](https://mise.jdx.dev/getting-started.html#installing-mise-cli). On MacOS, use `brew install mise`.
 
 After that, initialize the environment and install dependencies:
 ```
@@ -15,8 +20,6 @@ mise r collect-mainnet-basefee
 mise r collect-mainnet-txs
 ```
 
-## Analysis
-The analysis can be found in [`main.ipynb`](main.ipynb). Make sure you select the correct Python environment in the top right corner (from the virtual environment).
 
 ## Optimizing Settlement
 - Pack calldata better
