@@ -1,0 +1,168 @@
+  {
+    "type": "event",
+    "name": "BatchProposed",
+    "inputs": [
+      {
+        "name": "info",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct ITaikoInbox.BatchInfo",
+        "components": [
+          {
+            "name": "txsHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "blocks",
+            "type": "tuple[]",
+            "internalType": "struct ITaikoInbox.BlockParams[]",
+            "components": [
+              {
+                "name": "numTransactions",
+                "type": "uint16",
+                "internalType": "uint16"
+              },
+              {
+                "name": "timeShift",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "signalSlots",
+                "type": "bytes32[]",
+                "internalType": "bytes32[]"
+              }
+            ]
+          },
+          {
+            "name": "blobHashes",
+            "type": "bytes32[]",
+            "internalType": "bytes32[]"
+          },
+          {
+            "name": "extraData",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "coinbase",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "proposedIn",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "blobCreatedIn",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "blobByteOffset",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "blobByteSize",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "gasLimit",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "lastBlockId",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "lastBlockTimestamp",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "anchorBlockId",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "anchorBlockHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "baseFeeConfig",
+            "type": "tuple",
+            "internalType": "struct LibSharedData.BaseFeeConfig",
+            "components": [
+              {
+                "name": "adjustmentQuotient",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "sharingPctg",
+                "type": "uint8",
+                "internalType": "uint8"
+              },
+              {
+                "name": "gasIssuancePerSecond",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "minGasExcess",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "maxGasIssuancePerBlock",
+                "type": "uint32",
+                "internalType": "uint32"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "meta",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct ITaikoInbox.BatchMetadata",
+        "components": [
+          {
+            "name": "infoHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "proposer",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "batchId",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "proposedAt",
+            "type": "uint64",
+            "internalType": "uint64"
+          }
+        ]
+      },
+      {
+        "name": "txList",
+        "type": "bytes",
+        "indexed": false,
+        "internalType": "bytes"
+      }
+    ],
+    "anonymous": false
+  }
