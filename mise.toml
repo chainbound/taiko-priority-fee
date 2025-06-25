@@ -18,7 +18,7 @@ run = "uv venv && uv sync"
 
 [tasks.collect-proposals]
 description = "Collect batch proposal transactions and logs on Holesky for the given block range"
-env = { RPC_URL = "http://remotebeast:42545", FROM = 4055500, TO = 4062118 }
+env = { RPC_URL = "http://remotebeast:42545", FROM = 4055500, TO = 4062303 }
 run = [
     "cryo transactions -b $FROM:$TO -r $RPC_URL --from-address $PROPOSER --to-address $ROUTER --csv --topic0 0x9eb7fc80523943f28950bbb71ed6d584effe3e1e02ca4ddc8c86e5ee1558c096 --chunk-size 100000 --columns block_number timestamp transaction_hash gas_limit gas_used gas_price max_priority_fee_per_gas max_fee_per_gas n_input_bytes --sort block_number",
     "cryo logs -b $FROM:$TO -r $RPC_URL --from-address $PROPOSER --address $INBOX --csv --topic0 0x9eb7fc80523943f28950bbb71ed6d584effe3e1e02ca4ddc8c86e5ee1558c096 --chunk-size 100000 --sort block_number",
